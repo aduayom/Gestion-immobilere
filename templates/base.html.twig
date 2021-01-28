@@ -1,12 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+        {% block stylesheets %}
+        <meta charset="utf-8">
+        <!-- Theme Informations -->	
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="keywords" content="">
+            <meta name="author" content="">
+        <!-- Theme Informations -->
+        
+            <title>Real Estate-404 Page</title>
+        
+        <!-- Stylesheets -->
+            <link rel="stylesheet" href="{{asset("bootstrap/css/bootstrap.css")}}">	
+            <link rel="stylesheet" href="{{asset("css/common-style.css")}}">
+        <!-- Stylesheets -->
+          
+        <!-- Icons & Fonts -->
+            <link rel="stylesheet" href="{{asset("font-awesome/css/font-awesome.min.css")}}">
+        <!-- Icons & Fonts -->
+        {% endblock %}
+
+
+
+
+  <!-- Navigation Section-->
+    <nav id="nav" class="container-fluid navbar navbar-default navbar-fixed-top">
+        <div class="container">
+	      <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+	      	    <a class="navbar-brand page-scroll" href="#page-top"><span>{RE.}</span></a>
+	      </div>
+	      <div class="collapse navbar-collapse" id="toggle">
+		      	<ul class="nav navbar-nav">
+              <li class="lBorder"><a class="page-scroll" href="index.html">HOME</a></li>
+              <li class="lBorder"><a class="page-scroll" href="index.html#selling">SELLING</a></li>
+              <li class="lBorder"><a class="page-scroll" href="index.html#renting">RENTING</a></li>
+              <li class="lBorder"><a class="page-scroll" href="second-theme.html#about">ABOUT</a></li>
+              <li class="lBorder"><a class="page-scroll" data-toggle="modal" href="#contact-form">CONTACT</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">PAGES 
+                  <i class="text-right fa fa-angle-up fa-2x"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    {% if app.user!=null %}
+                    <li><a href="{{path("app_logout")}}">Se déconnecter</a></li>
+                    <li><a href="second-theme.html">Créer un bien</a></li>
+                    <li><a href="third-theme.html">Third Theme</a></li>
+                    <li><a href="404.html">Error 404</a></li>
+                    {% else %}
+                    <li><a href="{{path("app_login")}}">Se connecter</a></li>
+                    <li><a href="second-theme.html">Second Theme</a></li>
+                    <li><a href="third-theme.html">Third Theme</a></li>
+                    <li><a href="404.html">Error 404</a></li>
+
+                    {% endif %}
+                    
+                </ul>
+              </li>
+                  </ul>
+                  
+	      </div>							
+        </div>
+	   <!-- Search - start -->
+        <div class="search-field">
+            <a id="search-field-btn" class="search-field-btn" href="#"><i class="fa fa-search"></i></a>
+            <form class="search-field-form">
+                <input type="text" placeholder="Enter your search term...">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <!-- Search - end -->
+    </nav>
+  <!-- End of Navigation section-->
+
+  
+  <!-- Page Body-->
+  {% block body %}
+  {% endblock %}
+  <!-- End of Page Body-->
+
+
+{% block javascripts %}
+         <!-- jQuery-->
+        <script src="{{asset("js/jquery.min.js")}}"></script>
+        <!-- Bootstrap Core Javascript--> 
+        <script src="{{asset("bootstrap/js/bootstrap.min.js")}}"></script>
+        <!-- Plugins -->
+        <script src="{{asset("js/jquery.easing.min.js")}}"></script>
+        <script src="{{asset("js/script.js")}}"></script>
+{% endblock %}
+  

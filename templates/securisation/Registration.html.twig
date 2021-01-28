@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+<div class="modal fade theme-modal in" id="contact-form" tabindex="-1" role="dialog" aria-hidden="true" style="display: block;">
+    <div class="container-fluid row">
+       <div class="col-xs-12 col-sm-6 col-sm-push-3 modal-content">
+          <div class="modal-content-header">
+          </div>
+          <div class="modal-content-title">
+            <h2>S'inscrire</h2>
+          </div>
+          <div class="modal-content-body">
+              
+              {{ form_start(form,
+                {"attr":
+                {"class":"form-horizontal"}
+              })}}
+              <div class="form-group">
+                <div class="col-xs-10 col-xs-push-1">
+                    <div class="form-error">
+                        {{ form_errors(form.Nom) }}
+                    </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user"></i>
+                    </span>
+                    {{ form_widget(form.Nom, {'attr': {'class': 'form-control','placeholder':'Nom'}}) }}
+                  </div>
+                </div>
+                <div class="col-xs-10 col-xs-push-1">
+                    <div class="form-error">
+                        {{ form_errors(form.Prenom) }}
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      {{ form_widget(form.Prenom, {'attr': {'class': 'form-control','placeholder':'Prenom'}}) }}
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="form-error">
+                    {{ form_errors(form.Email) }}
+                </div>
+                <div class="col-xs-10 col-xs-push-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                    {{ form_widget(form.Email, {'attr': {'class': 'form-control','placeholder':'Email'}}) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-error">
+                  {{ form_errors(form.Password) }}
+                </div>
+                <div class="col-xs-10 col-xs-push-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                    {{ form_widget(form.Password, {'attr': {'class': 'form-control','placeholder':'Mot de passe'}}) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-error">
+                  {{ form_errors(form.Confirm_Password) }}
+              </div>
+                <div class="col-xs-10 col-xs-push-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                    {{ form_widget(form.Confirm_Password, {'attr': {'class': 'form-control','placeholder':'Confirmer mot de passe'}}) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-10 col-xs-push-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                    {{ form_widget(form.TypeProfil, {'attr': {'class': 'form-control','placeholder':'Type de profil'}}) }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-10 col-xs-push-1 text-right">
+                    <button type="submit" class="btn btn-custom">Valider<i class="fa fa-send-o"></i></button>
+                </div>
+              </div>
+            {{ form_end(form) }}
+          </div>
+       </div>
+    </div>
+ </div>
+ 
+{% endblock %}
